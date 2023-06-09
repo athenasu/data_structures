@@ -38,7 +38,22 @@ class BinarySearchTree:
                 3. Pop items from the stack and decrement k by 1
                 4. Check if k == 0, if not, then we move to the right of the node and find the left
         """
-        pass
+        stack = []
+        current_node = self.root
+
+        while current_node or stack:
+            while current_node:
+                stack.append(current_node)
+                current_node = current_node.left
+            
+            current_node = stack.pop()
+            k -= 1
+
+            if k == 0:
+                return current_node.value
+            
+            current_node = current_node.right
+        
             
 
 
