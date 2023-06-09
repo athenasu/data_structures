@@ -10,7 +10,13 @@ def max_profit(prices):
                 iii. get max_profit
             3. Return max_profit
     """
-    pass
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        min_price = min(min_price, price)
+        profit = price - min_price
+        max_profit = max(max_profit, profit)
+    return max_profit
 
 
     
