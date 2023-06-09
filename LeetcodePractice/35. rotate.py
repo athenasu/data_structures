@@ -4,16 +4,14 @@ from typing import List
 def rotate(nums: List, k):
     """
         Takes the list of integers and an integer k as input and rotates the list to the right by k steps.
-    
+        Note: 
+            1. nums[:] = whole list
+            2. nums[-k:] = not including nums[k]
+            3. nums[:-k] = including nums[k]
     """
-    # Solution 2
-    # checking to see if k == len(nums) or k > len(nums)
-    
-    # nums[:] = whole list, nums[-k:] = not including nums[k], nums[:-k] = including nums[k]
-    pass
-    
-
-    
+    # check if k is bigger than the list
+    k = k % len(nums)
+    nums[:] = nums[-k:] + nums[:-k]
 
 
 nums = [1, 2, 3, 4, 5, 6, 7]
@@ -28,11 +26,3 @@ print("Rotated array:", nums)
     Rotated array: [5, 6, 7, 1, 2, 3, 4]
 
 """
-
-# Solution 1
-# for _ in range(k):
-#     nums.insert(0, nums.pop())
-
-# Solution 2
-# k = k % len(nums)
-# nums[:] = nums[-k:] + nums[:-k]

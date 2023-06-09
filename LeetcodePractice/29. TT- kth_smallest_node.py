@@ -39,6 +39,8 @@ class BinarySearchTree:
                 4. Check if k == 0, if not, then we move to the right of the node and find the left
         """
         pass
+            
+
 
 
 
@@ -46,15 +48,15 @@ bst = BinarySearchTree()
 
 bst.insert(5)
 bst.insert(3)
-bst.insert(7)
+bst.insert(10)
 bst.insert(2)
 bst.insert(4)
-bst.insert(6)
-bst.insert(8)
+bst.insert(7)
+bst.insert(18)
 
 print(bst.kth_smallest(1))  # Expected output: 2
 print(bst.kth_smallest(3))  # Expected output: 4
-print(bst.kth_smallest(6))  # Expected output: 7
+print(bst.kth_smallest(6))  # Expected output: 10
 
 
 """
@@ -62,6 +64,20 @@ print(bst.kth_smallest(6))  # Expected output: 7
     ----------------
     2
     4
-    7
+    10
 
  """
+
+ # Solution
+#  stack = []
+# current_node = self.root
+# while current_node or stack:
+#     while current_node:
+#         stack.append(current_node)
+#         current_node = current_node.left
+        
+#     current_node = stack.pop()
+#     k -= 1
+#     if k == 0:
+#         return current_node.value
+#     current_node = current_node.right

@@ -13,7 +13,35 @@ def remove_duplicates(nums:list):
             2. Should not use any additional data structures
             3. Original list should be modified in-place
     """
-    pass
+
+    # Other Solution: this does not keep the original values in the list
+    if not nums:
+        return 0
+    
+    nums.sort()
+    write = 1
+
+    for read in range(1, len(nums)):
+        if nums[read] != nums[read - 1]:
+            nums[write] = nums[read]
+            write += 1
+    return write
+
+    # Solution 1: keeps all original items in list
+    # if not nums:
+    #     return 0
+    
+    # nums.sort()
+    # writer, pointer = 0, 1
+    # while pointer < len(nums):
+    #     if nums[writer] == nums[pointer]:
+    #         pointer += 1
+    #     else:
+    #         writer += 1
+    #         nums[writer], nums[pointer] = nums[pointer], nums[writer]
+    #         pointer += 1
+    # return writer + 1
+    
 
     
     
@@ -22,6 +50,7 @@ nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 new_length = remove_duplicates(nums)
 print("New length:", new_length)
 print("Unique values in list:", nums[:new_length])
+print(nums)
 
 
 """
